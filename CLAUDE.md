@@ -60,7 +60,7 @@ claude-code-skills/
 │       ├── upscale.md
 │       ├── transform-image.md
 │       ├── embed.md
-│       └── setup-delivery.md
+│       └── deapi-setup.md
 └── docs/
     └── api-reference.md      # Full deAPI documentation
 ```

@@ -22,7 +22,7 @@ AI-powered media tools via decentralized GPU network.
 | `/upscale` | Upscale image resolution (2x/4x) |
 | `/transform-image` | Apply style transfer to images |
 | `/embed` | Generate text embeddings for semantic search |
-| `/setup-delivery` | Configure result delivery (webhooks/websockets) for server apps |
+| `/deapi-setup` | Configure result delivery (webhooks/websockets) for server apps |
 
 ## Quick Examples
 

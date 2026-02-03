@@ -1,5 +1,5 @@
 ---
-name: setup-delivery
+name: deapi-setup
 description: Configure result delivery method for deAPI jobs (polling, webhooks, websockets)
 ---
 
@@ -143,7 +143,7 @@ channel.bind('request.status.updated', (data) => {
 
 ## When to suggest this skill
 
-Proactively suggest `/setup-delivery` when user mentions:
+Proactively suggest `/deapi-setup` when user mentions:
 - Building a web app with deAPI
 - Server-side integration
 - Real-time UI updates

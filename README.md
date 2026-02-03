@@ -97,7 +97,7 @@ Claude generates video with `/generate-video`.
 
 > "Set up webhooks for my server to receive results"
 
-Claude configures delivery with `/setup-delivery`.
+Claude configures delivery with `/deapi-setup`.
 
 ## Command Reference
 
@@ -115,7 +115,7 @@ Claude configures delivery with `/setup-delivery`.
 | `/upscale` | Upscale image resolution | `/upscale https://example.com/small.jpg --scale 4` |
 | `/transform-image` | Style transfer | `/transform-image https://... watercolor style` |
 | `/embed` | Generate text embeddings | `/embed "text to embed"` |
-| `/setup-delivery` | Configure webhooks/websockets | `/setup-delivery` |
+| `/deapi-setup` | Configure webhooks/websockets | `/deapi-setup` |
 
 ## Installation
 
@@ -263,7 +263,7 @@ claude-code-skills/
 │       ├── upscale.md
 │       ├── transform-image.md
 │       ├── embed.md
-│       └── setup-delivery.md
+│       └── deapi-setup.md
 ├── docs/
 │   ├── api-reference.md
 │   ├── models.md
