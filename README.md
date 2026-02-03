@@ -3,7 +3,8 @@
 > **Skill for Claude Code** that adds AI media generation capabilities.
 > Install once, then just describe what you want - transcribe videos, generate images,
 > text-to-speech, OCR. Claude automatically picks the right tool.
-> Also works with Cursor, Windsurf & Continue.dev. Up to 20x cheaper inference via deAPI.
+> Also works with Cursor, Windsurf & Continue.dev. Up to 20x cheaper inference via [deAPI](https://deapi.ai).
+> **Free $5 credit** on signup, no credit card required.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
