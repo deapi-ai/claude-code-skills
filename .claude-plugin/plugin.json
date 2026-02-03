@@ -1,0 +1,31 @@
+{
+  "name": "deapi",
+  "version": "1.0.0",
+  "description": "AI media generation via deAPI - 10-20x cheaper inference through decentralized GPU network",
+  "author": {
+    "name": "deAPI Team",
+    "url": "https://deapi.ai"
+  },
+  "repository": "https://github.com/deapi/deapi-skills",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "image-generation",
+    "tts",
+    "text-to-speech",
+    "transcription",
+    "ocr",
+    "video",
+    "embeddings",
+    "flux",
+    "whisper",
+    "background-removal",
+    "upscaling"
+  ],
+  "environment": {
+    "DEAPI_API_KEY": {
+      "description": "Your deAPI authentication key",
+      "required": true
+    }
+  }
+}

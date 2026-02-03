@@ -1,0 +1,17 @@
+# Environment variables
+.env
+.env.local
+!.env.example
+
+# Claude local settings
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
