@@ -87,6 +87,12 @@ argument-hint: <required> [optional]  # only if command takes arguments
 2. Poll `/request-status/{id}` every 10s
 3. When `status = "done"` → fetch from `result_url`
 
+## API Reference (Source of Truth)
+
+**OpenAPI spec:** `docs/client-api-docs.json` - pełna specyfikacja API w formacie OpenAPI 3.0
+
+Użyj tego pliku do weryfikacji parametrów endpointów.
+
 ## Key Links
 - Webhooks: https://docs.deapi.ai/execution-modes-and-integrations/webhooks
 - WebSockets: https://docs.deapi.ai/execution-modes-and-integrations/websockets
