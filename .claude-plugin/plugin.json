@@ -11,16 +11,27 @@
   "keywords": [
     "ai",
     "image-generation",
+    "text-to-image",
+    "stable-diffusion",
+    "flux",
     "tts",
     "text-to-speech",
     "transcription",
+    "speech-to-text",
+    "youtube",
+    "audio",
+    "whisper",
     "ocr",
     "video",
+    "text-to-video",
+    "image-to-video",
     "embeddings",
-    "flux",
-    "whisper",
     "background-removal",
-    "upscaling"
+    "upscaling",
+    "cheap",
+    "affordable",
+    "api",
+    "deapi"
   ],
   "environment": {
     "DEAPI_API_KEY": {
