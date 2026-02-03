@@ -50,7 +50,9 @@ git clone https://github.com/deapi-ai/claude-code-skills.git
 cp -r claude-code-skills/deapi ~/.claude/skills/
 ```
 
-**4. Try it:**
+**4. Restart Claude Code** (new session or reopen terminal)
+
+**5. Try it:**
 ```
 /transcribe https://youtube.com/watch?v=dQw4w9WgXcQ
 ```
@@ -156,6 +158,8 @@ git clone https://github.com/deapi-ai/claude-code-skills.git
 cp -r claude-code-skills/deapi ~/.claude/skills/
 ```
 
+Then restart Claude Code (start a new session or reopen terminal).
+
 ### Individual Command Installation
 
 Install only specific commands if you prefer:
@@ -170,6 +174,8 @@ cp claude-code-skills/deapi/commands/transcribe.md ~/.claude/commands/
 # Just image generation
 cp claude-code-skills/deapi/commands/generate-image.md ~/.claude/commands/
 ```
+
+Then restart Claude Code to load the new commands.
 
 ## Compatibility
 
