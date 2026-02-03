@@ -117,9 +117,10 @@
 
 ## Upscaling Model
 
-### Real-ESRGAN
+### RealESRGAN_x4
+- **API name:** `RealESRGAN_x4`
 - **Endpoint:** `img-upscale`
-- **Scale factors:** 2x, 4x
+- **Scale factor:** 4x
 - **Quality:** Excellent detail preservation
 - **Best for:** Enhancing AI-generated images, photo restoration
 
@@ -149,3 +150,4 @@
 | Semantic search | `Bge_M3_FP16` | - |
 | OCR | `Nanonets_Ocr_S_F16` | - |
 | Background removal | `Ben2` | - |
+| Image upscaling | `RealESRGAN_x4` | - |

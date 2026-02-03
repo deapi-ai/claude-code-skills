@@ -196,14 +196,14 @@ POST /img-rmbg
 Content-Type: multipart/form-data
 
 -F "image=@photo.jpg"
--F "model=RMBG-1.4"
+-F "model=Ben2"
 ```
 
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `image` | file | Yes | - | Image file (max 10MB) |
-| `model` | string | Yes | - | `RMBG-1.4` |
+| `model` | string | Yes | - | `Ben2` |
 
 **Output:** PNG with transparent background
 
@@ -219,14 +219,14 @@ POST /img-upscale
 Content-Type: multipart/form-data
 
 -F "image=@photo.jpg"
--F "model=RealESRGAN_x4plus"
+-F "model=RealESRGAN_x4"
 ```
 
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `image` | file | Yes | - | Image file |
-| `model` | string | Yes | - | `RealESRGAN_x2plus` (2x) or `RealESRGAN_x4plus` (4x) |
+| `model` | string | Yes | - | `RealESRGAN_x2` (2x) or `RealESRGAN_x4` (4x) |
 
 ---
 

@@ -23,7 +23,7 @@ Verify `$ARGUMENTS` is a valid image file path or URL:
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img-rmbg" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
   -F "image=@{local_file_path}" \
-  -F "model=RMBG-1.4"
+  -F "model=Ben2"
 ```
 
 If user provides a URL, first download the image:

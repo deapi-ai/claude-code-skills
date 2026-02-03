@@ -17,8 +17,8 @@ Extract from `$ARGUMENTS`:
 **Model options (based on scale):**
 | Scale | Model | Result |
 |-------|-------|--------|
-| `2` | `RealESRGAN_x2plus` | 2x resolution (e.g., 512→1024) |
-| `4` | `RealESRGAN_x4plus` | 4x resolution (e.g., 512→2048) |
+| `2` | `RealESRGAN_x2` | 2x resolution (e.g., 512→1024) |
+| `4` | `RealESRGAN_x4` | 4x resolution (e.g., 512→2048) |
 
 ## Step 2: Send request
 
@@ -28,7 +28,7 @@ Extract from `$ARGUMENTS`:
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img-upscale" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
   -F "image=@{local_file_path}" \
-  -F "model=RealESRGAN_x4plus"
+  -F "model=RealESRGAN_x4"
 ```
 
 If user provides a URL, first download the image:
