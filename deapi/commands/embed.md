@@ -22,7 +22,7 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2embedding" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "$ARGUMENTS",
+    "input": "$ARGUMENTS",
     "model": "Bge_M3_FP16"
   }'
 ```

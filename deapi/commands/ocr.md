@@ -10,21 +10,26 @@ Extract text from image: **$ARGUMENTS**
 
 ## Step 1: Validate input
 
-Verify `$ARGUMENTS` is a valid image URL:
+Verify `$ARGUMENTS` is a valid image file path or URL:
 - Supported formats: `.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.bmp`
-- URL must be publicly accessible
+- If URL provided, download the file first
 
 ## Step 2: Send request
+
+**Note:** This endpoint requires `multipart/form-data` with file upload.
 
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img2txt" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "image_url": "$ARGUMENTS",
-    "model": "Nanonets_Ocr_S_F16"
-  }'
+  -F "image=@{local_file_path}" \
+  -F "model=Nanonets_Ocr_S_F16"
 ```
+
+If user provides a URL, first download the image:
+```bash
+curl -s -o /tmp/ocr_image.png "{image_url}"
+```
+Then use `/tmp/ocr_image.png` as the file path.
 
 ## Step 3: Poll status (feedback loop)
 

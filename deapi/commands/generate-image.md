@@ -27,7 +27,7 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2img" \
     "width": {size},
     "height": {size},
     "steps": {steps},
-    "guidance_scale": 7.5,
+    "guidance": 7.5,
     "seed": {random_seed}
   }'
 ```

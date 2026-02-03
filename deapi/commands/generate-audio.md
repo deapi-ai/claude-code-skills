@@ -49,9 +49,21 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2audio" \
   -d '{
     "text": "{text}",
     "voice": "{voice}",
-    "model": "Kokoro"
+    "model": "Kokoro",
+    "lang": "{lang_code}",
+    "speed": 1.0,
+    "format": "mp3",
+    "sample_rate": 24000
   }'
 ```
+
+**Parameters:**
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `lang` | auto from voice | Language code: `en-us`, `en-gb`, `ja`, `zh`, `es`, `fr`, `hi`, `it`, `pt-br` |
+| `speed` | `1.0` | Speech speed (0.5-2.0) |
+| `format` | `mp3` | Output format: `mp3`, `wav`, `flac`, `ogg` |
+| `sample_rate` | `24000` | Sample rate: `22050`, `24000`, `44100`, `48000` |
 
 ## Step 3: Poll status (feedback loop)
 

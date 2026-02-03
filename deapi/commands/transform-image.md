@@ -23,25 +23,31 @@ Extract from `$ARGUMENTS`:
 
 ## Step 2: Send request
 
+**Note:** This endpoint requires `multipart/form-data` with file upload.
+
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img2img" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "image_url": "{image_url}",
-    "prompt": "{style_prompt}",
-    "strength": 0.7,
-    "guidance_scale": 7.5,
-    "model": "QwenImageEdit_Plus_NF4"
-  }'
+  -F "image=@{local_file_path}" \
+  -F "prompt={style_prompt}" \
+  -F "model=QwenImageEdit_Plus_NF4" \
+  -F "guidance=7.5" \
+  -F "steps=20" \
+  -F "seed={random_seed}"
 ```
 
-**Strength parameter:**
-| Value | Effect |
-|-------|--------|
-| 0.3-0.5 | Subtle changes, preserves original |
-| 0.5-0.7 | Balanced transformation (default) |
-| 0.7-0.9 | Strong style application |
+If user provides a URL, first download the image:
+```bash
+curl -s -o /tmp/transform_image.png "{image_url}"
+```
+Then use `/tmp/transform_image.png` as the file path.
+
+**Parameters:**
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `guidance` | `7.5` | Prompt adherence (1-20) |
+| `steps` | `20` | Inference steps (10-50) |
+| `seed` | random | For reproducibility (0-999999) |
 
 ## Step 3: Poll status (feedback loop)
 

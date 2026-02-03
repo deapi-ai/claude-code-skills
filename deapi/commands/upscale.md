@@ -11,26 +11,31 @@ Upscale image: **$ARGUMENTS**
 ## Step 1: Parse arguments
 
 Extract from `$ARGUMENTS`:
-- `image_url`: URL to the image (required)
+- `image`: Image file path or URL (required)
 - `--scale`: Upscale factor - `2` (2x, default) or `4` (4x)
 
-**Scale options:**
-| Scale | Result | Best for |
-|-------|--------|----------|
-| `2` | 2x resolution (e.g., 512→1024) | General enhancement |
-| `4` | 4x resolution (e.g., 512→2048) | Maximum quality, print |
+**Model options (based on scale):**
+| Scale | Model | Result |
+|-------|-------|--------|
+| `2` | `RealESRGAN_x2plus` | 2x resolution (e.g., 512→1024) |
+| `4` | `RealESRGAN_x4plus` | 4x resolution (e.g., 512→2048) |
 
 ## Step 2: Send request
+
+**Note:** This endpoint requires `multipart/form-data` with file upload.
 
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img-upscale" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "image_url": "{image_url}",
-    "scale": {scale}
-  }'
+  -F "image=@{local_file_path}" \
+  -F "model=RealESRGAN_x4plus"
 ```
+
+If user provides a URL, first download the image:
+```bash
+curl -s -o /tmp/upscale_image.png "{image_url}"
+```
+Then use `/tmp/upscale_image.png` as the file path.
 
 ## Step 3: Poll status (feedback loop)
 

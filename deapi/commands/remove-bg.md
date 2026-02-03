@@ -10,22 +10,27 @@ Remove background from image: **$ARGUMENTS**
 
 ## Step 1: Validate input
 
-Verify `$ARGUMENTS` is a valid image URL:
+Verify `$ARGUMENTS` is a valid image file path or URL:
 - Supported formats: `.png`, `.jpg`, `.jpeg`, `.webp`
-- URL must be publicly accessible
+- If URL provided, download the file first
 - Best results with clear subject/foreground
 
 ## Step 2: Send request
 
+**Note:** This endpoint requires `multipart/form-data` with file upload.
+
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img-rmbg" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "image_url": "$ARGUMENTS",
-    "model": "Ben2"
-  }'
+  -F "image=@{local_file_path}" \
+  -F "model=RMBG-1.4"
 ```
+
+If user provides a URL, first download the image:
+```bash
+curl -s -o /tmp/rmbg_image.png "{image_url}"
+```
+Then use `/tmp/rmbg_image.png` as the file path.
 
 ## Step 3: Poll status (feedback loop)
 
