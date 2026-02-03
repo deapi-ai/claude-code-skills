@@ -1,9 +1,9 @@
 # deAPI Skills - AI Media Generation for Claude Code
 
-> AI media generation skill for Claude Code - transcribe YouTube, generate images,
-> text-to-speech, OCR and more. Claude automatically suggests the right command.
-> Also works with Cursor, Windsurf & Continue.dev. **10-20x cheaper** inference.
-> Open source Claude Code plugin by Anthropic community.
+> **Skill for Claude Code** that adds AI media generation capabilities.
+> Install once, then just describe what you want - transcribe videos, generate images,
+> text-to-speech, OCR. Claude automatically picks the right tool.
+> Also works with Cursor, Windsurf & Continue.dev. Up to 20x cheaper inference via deAPI.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -11,9 +11,9 @@
 
 - [Why deAPI Skills?](#why-deapi-skills)
 - [Quick Start](#quick-start)
-- [Installation](#installation)
-- [Available Commands](#available-commands)
 - [Use Cases](#use-cases)
+- [Command Reference](#command-reference)
+- [Installation](#installation)
 - [Compatibility](#compatibility)
 - [Pricing](#pricing)
 - [Documentation](#documentation)
@@ -21,16 +21,18 @@
 
 ## Why deAPI Skills?
 
-**Problem:** AI media generation APIs are expensive and complex to integrate into your CLI workflow.
+**This is a skill, not a command collection.**
 
-**Solution:** Simple slash commands that work directly in Claude Code, Cursor IDE, and other AI coding assistants.
+After installation, Claude automatically knows how to:
+- Transcribe YouTube videos
+- Generate images from text
+- Convert text to speech
+- Extract text from images (OCR)
+- And more...
 
-| Feature | deAPI Skills | Traditional APIs |
-|---------|--------------|------------------|
-| Setup time | 30 seconds | Hours |
-| Cost | $0.027/image | $0.20-0.50/image |
-| YouTube transcription | Built-in | Requires multiple APIs |
-| Integration | Slash commands | Custom code needed |
+Just describe what you want in natural language. Claude picks the right tool.
+
+**Bonus:** Up to 20x cheaper than OpenAI, Replicate, or ElevenLabs.
 
 ## Quick Start
 
@@ -54,6 +56,63 @@ cp -r deapi-skills/skills/deapi ~/.claude/skills/
 
 **Done!** Claude now automatically knows about deAPI commands.
 Try: "transcribe this YouTube video" - Claude will suggest `/transcribe`.
+
+## Use Cases
+
+### Transcribe YouTube videos
+
+Just tell Claude what you want:
+> "Transcribe this YouTube video and summarize key points"
+
+Claude automatically uses `/transcribe` and processes the result.
+
+### Generate AI images
+
+> "Create a hero image for my landing page - minimalist, tech startup vibe"
+
+Claude generates the image using Flux model via `/generate-image`.
+
+### Text-to-speech / AI voice
+
+> "Read this blog post aloud with a professional male voice"
+
+Claude converts text to natural speech with `/generate-audio`.
+
+### Extract text from images (OCR)
+
+> "Extract all text from this screenshot"
+
+Claude uses `/ocr` to pull text from any image.
+
+### Generate video from text
+
+> "Create a short video of a cat walking through a garden"
+
+Claude generates video with `/generate-video`.
+
+### Configure webhooks for production
+
+> "Set up webhooks for my server to receive results"
+
+Claude configures delivery with `/setup-delivery`.
+
+## Command Reference
+
+> You don't need to memorize these. Claude automatically picks the right command
+> based on your request. This is just for reference.
+
+| Command | What it does | Example |
+|---------|--------------|---------|
+| `/transcribe` | Transcribe YouTube, audio, video | `/transcribe https://youtube.com/watch?v=...` |
+| `/generate-image` | AI image generation from text | `/generate-image a sunset over mountains` |
+| `/generate-audio` | Text-to-speech conversion | `/generate-audio "Hello world" --voice am_adam` |
+| `/generate-video` | Text/image to video | `/generate-video a cat walking through garden` |
+| `/ocr` | Extract text from images | `/ocr https://example.com/document.png` |
+| `/remove-bg` | Remove image background | `/remove-bg https://example.com/photo.jpg` |
+| `/upscale` | Upscale image resolution | `/upscale https://example.com/small.jpg --scale 4` |
+| `/transform-image` | Style transfer | `/transform-image https://... watercolor style` |
+| `/embed` | Generate text embeddings | `/embed "text to embed"` |
+| `/setup-delivery` | Configure webhooks/websockets | `/setup-delivery` |
 
 ## Installation
 
@@ -111,44 +170,6 @@ cp deapi-skills/skills/deapi/commands/transcribe.md ~/.claude/commands/
 cp deapi-skills/skills/deapi/commands/generate-image.md ~/.claude/commands/
 ```
 
-## Available Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/transcribe` | Transcribe YouTube, audio, video | `/transcribe https://youtube.com/watch?v=...` |
-| `/generate-image` | AI image generation from text | `/generate-image a sunset over mountains` |
-| `/generate-audio` | Text-to-speech conversion | `/generate-audio "Hello world" --voice am_adam` |
-| `/generate-video` | Text/image to video | `/generate-video a cat walking through garden` |
-| `/ocr` | Extract text from images | `/ocr https://example.com/document.png` |
-| `/remove-bg` | Remove image background | `/remove-bg https://example.com/photo.jpg` |
-| `/upscale` | Upscale image resolution | `/upscale https://example.com/small.jpg --scale 4` |
-| `/transform-image` | Style transfer | `/transform-image https://... watercolor style` |
-| `/embed` | Generate text embeddings | `/embed "text to embed"` |
-| `/setup-delivery` | Configure webhooks/websockets | `/setup-delivery` |
-
-> **Note:** When you install the full skill, Claude automatically suggests these
-> commands based on context. You don't need to memorize them.
-
-## Use Cases
-
-### Transcribe YouTube videos in Claude Code
-Use `/transcribe` to convert any YouTube video to text with timestamps.
-Perfect for creating notes, summaries, or searchable content from video.
-
-### Generate AI images in Claude Code
-Use `/generate-image` with Flux model for high-quality image generation.
-10x cheaper than DALL-E or Midjourney API.
-
-### Text-to-speech in Claude Code
-Use `/generate-audio` for natural voice synthesis with 50+ voices.
-Great for creating podcasts, audiobooks, or voice-overs.
-
-### Extract text from images (OCR)
-Use `/ocr` to extract text from screenshots, documents, or photos.
-
-### Configure webhooks for production apps
-Use `/setup-delivery` to set up webhooks or websockets for server-side integration.
-
 ## Compatibility
 
 deAPI Skills work with multiple AI coding assistants:
@@ -203,17 +224,14 @@ See [Continue.dev docs](https://continue.dev/docs) for full setup.
 
 ## Pricing
 
-deAPI offers **10-20x cheaper** inference than competitors:
+**Up to 20x more cost effective** than proprietary APIs.
 
-| Service | deAPI Price | OpenAI/Replicate |
-|---------|-------------|------------------|
-| Image (1024x1024) | $0.027 | $0.20-0.50 |
-| TTS (1K chars) | $0.015 | $0.03-0.06 |
-| Transcription | $0.006/min | $0.006/min |
-| Video (per second) | $0.10 | $0.50+ |
-| Embeddings | $0.10/1M tokens | $0.13/1M tokens |
+Example prices:
+- Transcription: **$0.021/hour**
+- Image generation: from **$0.002/image**
 
-**Free tier:** $5 credit on signup, no credit card required.
+Free $5 credit on signup, no credit card required.
+→ [deapi.ai](https://deapi.ai)
 
 ## Documentation
 
