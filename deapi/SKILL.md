@@ -49,4 +49,4 @@ All deAPI requests are async:
 2. Poll status every 10s
 3. When `done` → fetch from `result_url`
 
-For detailed API parameters, see [docs/api-reference.md](../../docs/api-reference.md).
+For detailed API parameters, see [docs/api-reference.md](../docs/api-reference.md).

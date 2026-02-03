@@ -45,24 +45,24 @@ DEAPI_API_KEY=<key in .env>
 ## Project Structure
 
 ```
-skills/
+claude-code-skills/
 ├── CLAUDE.md                 # This file
-├── docs/
-│   └── api-reference.md      # Full deAPI documentation
-└── skills/
-    └── deapi/
-        ├── SKILL.md          # Main skill with commands table
-        └── commands/         # Individual commands
-            ├── transcribe.md
-            ├── generate-image.md
-            ├── generate-audio.md
-            ├── generate-video.md
-            ├── ocr.md
-            ├── remove-bg.md
-            ├── upscale.md
-            ├── transform-image.md
-            ├── embed.md
-            └── setup-delivery.md
+├── README.md
+├── deapi/                    # Skill folder (copy to ~/.claude/skills/)
+│   ├── SKILL.md              # Main skill with commands table
+│   └── commands/             # Individual commands
+│       ├── transcribe.md
+│       ├── generate-image.md
+│       ├── generate-audio.md
+│       ├── generate-video.md
+│       ├── ocr.md
+│       ├── remove-bg.md
+│       ├── upscale.md
+│       ├── transform-image.md
+│       ├── embed.md
+│       └── setup-delivery.md
+└── docs/
+    └── api-reference.md      # Full deAPI documentation
 ```
 
 ## Skill Conventions

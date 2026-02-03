@@ -46,8 +46,8 @@ export DEAPI_API_KEY=your_key_here
 
 **3. Install skill:**
 ```bash
-git clone https://github.com/deapi/deapi-skills.git
-cp -r deapi-skills/skills/deapi ~/.claude/skills/
+git clone https://github.com/deapi-ai/claude-code-skills.git
+cp -r claude-code-skills/deapi ~/.claude/skills/
 ```
 
 **4. Try it:**
@@ -152,8 +152,8 @@ Claude Code automatically discovers skills in `~/.claude/skills/`. No configurat
 ### Full Skill Installation (Recommended)
 
 ```bash
-git clone https://github.com/deapi/deapi-skills.git
-cp -r deapi-skills/skills/deapi ~/.claude/skills/
+git clone https://github.com/deapi-ai/claude-code-skills.git
+cp -r claude-code-skills/deapi ~/.claude/skills/
 ```
 
 ### Individual Command Installation
@@ -165,10 +165,10 @@ Install only specific commands if you prefer:
 mkdir -p ~/.claude/commands
 
 # Just transcription
-cp deapi-skills/skills/deapi/commands/transcribe.md ~/.claude/commands/
+cp claude-code-skills/deapi/commands/transcribe.md ~/.claude/commands/
 
 # Just image generation
-cp deapi-skills/skills/deapi/commands/generate-image.md ~/.claude/commands/
+cp claude-code-skills/deapi/commands/generate-image.md ~/.claude/commands/
 ```
 
 ## Compatibility
@@ -179,24 +179,24 @@ deAPI Skills work with multiple AI coding assistants:
 
 ```bash
 # Full skill installation (recommended)
-cp -r deapi-skills/skills/deapi ~/.claude/skills/
+cp -r claude-code-skills/deapi ~/.claude/skills/
 
 # Or just commands
-cp deapi-skills/skills/deapi/commands/*.md ~/.claude/commands/
+cp claude-code-skills/deapi/commands/*.md ~/.claude/commands/
 ```
 
 ### Cursor IDE
 
 ```bash
 mkdir -p .cursor/commands
-cp deapi-skills/skills/deapi/commands/*.md .cursor/commands/
+cp claude-code-skills/deapi/commands/*.md .cursor/commands/
 ```
 
 ### Windsurf
 
 ```bash
 mkdir -p .windsurf/workflows
-cp deapi-skills/skills/deapi/commands/*.md .windsurf/workflows/
+cp claude-code-skills/deapi/commands/*.md .windsurf/workflows/
 ```
 
 ### Continue.dev
@@ -244,21 +244,20 @@ Free $5 credit on signup, no credit card required.
 ## Repository Structure
 
 ```
-deapi/
-├── skills/
-│   └── deapi/
-│       ├── SKILL.md              ← Skill metadata + routing
-│       └── commands/             ← Command documentation (on-demand)
-│           ├── transcribe.md
-│           ├── generate-image.md
-│           ├── generate-audio.md
-│           ├── generate-video.md
-│           ├── ocr.md
-│           ├── remove-bg.md
-│           ├── upscale.md
-│           ├── transform-image.md
-│           ├── embed.md
-│           └── setup-delivery.md
+claude-code-skills/
+├── deapi/                        ← Copy this to ~/.claude/skills/
+│   ├── SKILL.md                  ← Skill metadata + routing
+│   └── commands/                 ← Command documentation (on-demand)
+│       ├── transcribe.md
+│       ├── generate-image.md
+│       ├── generate-audio.md
+│       ├── generate-video.md
+│       ├── ocr.md
+│       ├── remove-bg.md
+│       ├── upscale.md
+│       ├── transform-image.md
+│       ├── embed.md
+│       └── setup-delivery.md
 ├── docs/
 │   ├── api-reference.md
 │   ├── models.md
