@@ -22,7 +22,7 @@
 
 ## Why deAPI Skills?
 
-**This is a skill, not a command collection.**
+**Install once, just talk to Claude.**
 
 After installation, Claude automatically knows how to:
 - Transcribe YouTube videos
@@ -32,8 +32,9 @@ After installation, Claude automatically knows how to:
 - And more...
 
 Just describe what you want in natural language. Claude picks the right tool.
+You can also use commands directly if you prefer.
 
-**Bonus:** Up to 20x cheaper than OpenAI, Replicate, or ElevenLabs.
+**Bonus:** Up to 20x cheaper than big clouds like OpenAI.
 
 ## Quick Start
 
