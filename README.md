@@ -1,6 +1,9 @@
 # deAPI Skills - AI Media Generation for Claude Code
 
-> YouTube transcription, text-to-image generation, text-to-speech, OCR, and more - slash commands for Claude Code, Cursor, Windsurf & Continue.dev. **10-20x cheaper** AI inference via decentralized GPU network.
+> AI media generation skill for Claude Code - transcribe YouTube, generate images,
+> text-to-speech, OCR and more. Claude automatically suggests the right command.
+> Also works with Cursor, Windsurf & Continue.dev. **10-20x cheaper** inference.
+> Open source Claude Code plugin by Anthropic community.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,7 +12,8 @@
 - [Why deAPI Skills?](#why-deapi-skills)
 - [Quick Start](#quick-start)
 - [Installation](#installation)
-- [Commands](#commands)
+- [Available Commands](#available-commands)
+- [Use Cases](#use-cases)
 - [Compatibility](#compatibility)
 - [Pricing](#pricing)
 - [Documentation](#documentation)
@@ -107,7 +111,7 @@ cp deapi-skills/skills/deapi/commands/transcribe.md ~/.claude/commands/
 cp deapi-skills/skills/deapi/commands/generate-image.md ~/.claude/commands/
 ```
 
-## Commands
+## Available Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -120,6 +124,30 @@ cp deapi-skills/skills/deapi/commands/generate-image.md ~/.claude/commands/
 | `/upscale` | Upscale image resolution | `/upscale https://example.com/small.jpg --scale 4` |
 | `/transform-image` | Style transfer | `/transform-image https://... watercolor style` |
 | `/embed` | Generate text embeddings | `/embed "text to embed"` |
+| `/setup-delivery` | Configure webhooks/websockets | `/setup-delivery` |
+
+> **Note:** When you install the full skill, Claude automatically suggests these
+> commands based on context. You don't need to memorize them.
+
+## Use Cases
+
+### Transcribe YouTube videos in Claude Code
+Use `/transcribe` to convert any YouTube video to text with timestamps.
+Perfect for creating notes, summaries, or searchable content from video.
+
+### Generate AI images in Claude Code
+Use `/generate-image` with Flux model for high-quality image generation.
+10x cheaper than DALL-E or Midjourney API.
+
+### Text-to-speech in Claude Code
+Use `/generate-audio` for natural voice synthesis with 50+ voices.
+Great for creating podcasts, audiobooks, or voice-overs.
+
+### Extract text from images (OCR)
+Use `/ocr` to extract text from screenshots, documents, or photos.
+
+### Configure webhooks for production apps
+Use `/setup-delivery` to set up webhooks or websockets for server-side integration.
 
 ## Compatibility
 
@@ -210,7 +238,8 @@ deapi/
 │           ├── remove-bg.md
 │           ├── upscale.md
 │           ├── transform-image.md
-│           └── embed.md
+│           ├── embed.md
+│           └── setup-delivery.md
 ├── docs/
 │   ├── api-reference.md
 │   ├── models.md
