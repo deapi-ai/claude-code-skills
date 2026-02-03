@@ -1,7 +1,7 @@
 ---
 name: generate-audio
-description: Convert text to speech using various AI voices
-argument-hint: <text> [--voice af_bella|am_adam|bf_emma|bm_george]
+description: Convert text to speech using 54+ AI voices in 8 languages
+argument-hint: <text> [--voice af_bella]
 ---
 
 # Text-to-Speech via deAPI
@@ -14,18 +14,31 @@ Extract from `$ARGUMENTS`:
 - `text`: The text to convert to speech (required)
 - `--voice`: Voice ID (default: `af_bella`)
 
-**Available voices:**
-| Voice ID | Description |
-|----------|-------------|
-| `af_bella` | American Female - Bella (warm, friendly) |
-| `af_nicole` | American Female - Nicole (professional) |
-| `af_sarah` | American Female - Sarah (casual) |
-| `am_adam` | American Male - Adam (deep, authoritative) |
-| `am_michael` | American Male - Michael (energetic) |
-| `bf_emma` | British Female - Emma (elegant) |
-| `bf_isabella` | British Female - Isabella (refined) |
-| `bm_george` | British Male - George (sophisticated) |
-| `bm_lewis` | British Male - Lewis (warm) |
+**54+ voices in 8 languages.** Voice ID format: `{lang}{gender}_{name}`
+- Lang: `a`=American, `b`=British, `j`=Japanese, `z`=Chinese, `e`=Spanish, `f`=French, `h`=Hindi, `i`=Italian, `p`=Portuguese
+- Gender: `f`=female, `m`=male
+
+**Popular voices:**
+| Voice ID | Language | Description |
+|----------|----------|-------------|
+| `af_bella` | American EN | Warm, friendly (best quality) |
+| `af_heart` | American EN | Expressive, emotional |
+| `af_nicole` | American EN | Professional |
+| `af_sarah` | American EN | Casual |
+| `am_adam` | American EN | Deep, authoritative |
+| `am_michael` | American EN | Energetic |
+| `bf_emma` | British EN | Elegant (best British) |
+| `bf_isabella` | British EN | Refined |
+| `bm_george` | British EN | Sophisticated |
+| `jf_alpha` | Japanese | Natural Japanese female |
+| `zf_xiaobei` | Chinese | Mandarin female |
+| `ef_dora` | Spanish | Spanish female |
+| `ff_siwis` | French | French female (best quality) |
+| `hf_alpha` | Hindi | Hindi female |
+| `if_sara` | Italian | Italian female |
+| `pf_dora` | Portuguese | Brazilian Portuguese female |
+
+Full list: [Kokoro VOICES.md](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md)
 
 ## Step 2: Send request
 

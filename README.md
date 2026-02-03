@@ -217,8 +217,6 @@ customCommands:
       # Include content from commands/transcribe.md
 ```
 
-See [Continue.dev docs](https://continue.dev/docs) for full setup.
-
 ### Platform Support Matrix
 
 | Platform | Status | Format | Location |

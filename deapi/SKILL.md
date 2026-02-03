@@ -13,7 +13,7 @@ AI-powered media tools via decentralized GPU network.
 
 | Command | Use when user wants to... |
 |---------|---------------------------|
-| `/transcribe` | Transcribe YouTube, audio files, or video |
+| `/transcribe` | Transcribe YouTube, Twitch, Kick, X videos, or audio files |
 | `/generate-image` | Generate images from text descriptions |
 | `/generate-audio` | Convert text to speech (TTS) |
 | `/generate-video` | Create video from text or animate images |
