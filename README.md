@@ -53,12 +53,11 @@ cp -r claude-code-skills/deapi ~/.claude/skills/
 **4. Restart Claude Code** (new session or reopen terminal)
 
 **5. Try it:**
-```
-/transcribe https://youtube.com/watch?v=dQw4w9WgXcQ
-```
+> "Transcribe this YouTube video: https://youtube.com/watch?v=dQw4w9WgXcQ"
 
-**Done!** Claude now automatically knows about deAPI commands.
-Try: "transcribe this YouTube video" - Claude will suggest `/transcribe`.
+Or use command directly: `/transcribe https://youtube.com/watch?v=...`
+
+**Done!** Claude automatically picks the right tool based on your request.
 
 ## Use Cases
 
