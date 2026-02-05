@@ -225,7 +225,6 @@ customCommands:
 | Cursor IDE | Compatible | Markdown | `.cursor/commands/` |
 | Windsurf | Compatible | Markdown | `.windsurf/workflows/` |
 | Continue.dev | Requires adaptation | YAML+MD | `config.yaml` |
-| Cody | Requires conversion | JSON | `.vscode/cody.json` |
 
 ## Pricing
 
@@ -236,7 +235,8 @@ Example prices:
 - Image generation: from **$0.002/image**
 
 Free $5 credit on signup, no credit card required.
-→ [deapi.ai](https://deapi.ai)
+
+[deapi.ai](https://deapi.ai)
 
 ## Documentation
 
@@ -278,7 +278,7 @@ claude-code-skills/
 
 ## Contributing
 
-Contributions welcome! Please read our contributing guidelines before submitting PRs.
+Contributions welcome!
 
 ## License
 
