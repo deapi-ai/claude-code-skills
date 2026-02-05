@@ -205,18 +205,6 @@ mkdir -p .windsurf/workflows
 cp claude-code-skills/deapi/commands/*.md .windsurf/workflows/
 ```
 
-### Continue.dev
-
-Continue.dev uses YAML configuration. Add to your `config.yaml`:
-
-```yaml
-customCommands:
-  - name: transcribe
-    description: Transcribe video/audio
-    prompt: |
-      # Include content from commands/transcribe.md
-```
-
 ### Platform Support Matrix
 
 | Platform | Status | Format | Location |
@@ -224,7 +212,6 @@ customCommands:
 | Claude Code | Fully supported | Markdown | `~/.claude/skills/` |
 | Cursor IDE | Compatible | Markdown | `.cursor/commands/` |
 | Windsurf | Compatible | Markdown | `.windsurf/workflows/` |
-| Continue.dev | Requires adaptation | YAML+MD | `config.yaml` |
 
 ## Pricing
 
@@ -241,7 +228,6 @@ Free $5 credit on signup, no credit card required.
 ## Documentation
 
 - [API Reference](docs/api-reference.md)
-- [Pricing Details](docs/pricing.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
 **Available models:** Query `GET https://api.deapi.ai/api/v1/client/models` for up-to-date model list.
@@ -265,7 +251,6 @@ claude-code-skills/
 │       └── deapi-setup.md
 ├── docs/
 │   ├── api-reference.md
-│   ├── pricing.md
 │   └── troubleshooting.md
 ├── .env.example                  ← Environment variable template
 ├── LICENSE
@@ -277,10 +262,6 @@ claude-code-skills/
 - Claude Code CLI, Cursor IDE, Windsurf, or Continue.dev
 - deAPI account with API key
 - Internet connection
-
-## Contributing
-
-Contributions welcome!
 
 ## License
 
