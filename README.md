@@ -267,6 +267,8 @@ claude-code-skills/
 │   ├── api-reference.md
 │   ├── pricing.md
 │   └── troubleshooting.md
+├── .env.example                  ← Environment variable template
+├── LICENSE
 └── README.md
 ```
 
