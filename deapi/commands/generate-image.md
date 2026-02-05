@@ -13,7 +13,7 @@ Generate image from prompt: **$ARGUMENTS**
 Extract from `$ARGUMENTS`:
 - `prompt`: The text description (required)
 - `--model`: `klein` (default, recommended), `flux` (higher max resolution), or `turbo` (fastest)
-- `--size`: `512`, `768`, or `1024` (default: 1024)
+- `--size`: `512`, `768`, or `1024` (default: 1024). Klein supports up to 1536.
 
 ## Step 2: Send request
 
@@ -27,19 +27,25 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2img" \
     "width": {size},
     "height": {size},
     "steps": {steps},
-    "guidance": 7.5,
     "seed": {random_seed}
   }'
 ```
 
 **Model mapping:**
-| User flag | API model name | Steps | Info |
-|-----------|----------------|-------|------|
-| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4-10 (default: 4) | Recommended, supports txt2img + img2img |
-| `flux` | `Flux1schnell` | 4-10 (default: 4) | Higher max resolution (2048) |
-| `turbo` | `ZImageTurbo_INT8` | 4-10 (default: 4) | Fastest |
+| User flag | API model name | Steps | Max size | Info |
+|-----------|----------------|-------|----------|------|
+| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4 (fixed) | 1536 | Recommended, txt2img + img2img, multi-image |
+| `flux` | `Flux1schnell` | 4-10 (default: 4) | 2048 | Higher max resolution |
+| `turbo` | `ZImageTurbo_INT8` | 4-10 (default: 4) | 1024 | Fastest |
+
+**Klein model limits:**
+- Resolution: 256-1536px (step: 16)
+- Steps: 4 (fixed)
+- Guidance: not supported (parameter ignored)
 
 **Important:** Generate a random seed (0-999999) for each request.
+
+**Note:** Klein does not support `guidance` parameter - omit it or it will be ignored.
 
 ## Step 3: Poll status (feedback loop)
 
@@ -67,7 +73,7 @@ When `status = "done"`:
 Ask user:
 - "Would you like variations with a modified prompt?"
 - "Should I upscale this image?"
-- "Would you like to try a different style?"
+- "Would you like to transform this with additional images?" (Klein supports up to 3 input images in img2img)
 
 ## Error handling
 

@@ -11,24 +11,26 @@ Transform image: **$ARGUMENTS**
 ## Step 1: Parse arguments
 
 Extract from `$ARGUMENTS`:
-- `image_url`: URL to the source image (required)
+- `image_url`: URL(s) to source image(s) - Klein supports up to 3 images (required)
 - `style_prompt`: Description of desired transformation (required)
-- `--model`: `klein` (default, faster) or `qwen` (higher steps, more control)
+- `--model`: `klein` (default, faster, multi-image) or `qwen` (higher steps, more control)
 
 **Example style prompts:**
 - "convert to watercolor painting"
 - "make it look like a vintage photograph"
 - "transform into anime style"
 - "add cyberpunk neon aesthetic"
-- "make it look like oil painting"
+- "combine these images into one scene" (multi-image with Klein)
 
 ## Step 2: Send request
 
 **Note:** This endpoint requires `multipart/form-data` with file upload.
 
-If user provides a URL, first download the image:
+If user provides URL(s), first download the image(s):
 ```bash
-curl -s -o /tmp/transform_image.png "{image_url}"
+curl -s -o /tmp/transform_image1.png "{image_url_1}"
+curl -s -o /tmp/transform_image2.png "{image_url_2}"  # optional
+curl -s -o /tmp/transform_image3.png "{image_url_3}"  # optional
 ```
 
 Then send the transformation request:
@@ -36,7 +38,9 @@ Then send the transformation request:
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img2img" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
-  -F "image=@{local_file_path}" \
+  -F "image=@{local_file_path_1}" \
+  -F "image=@{local_file_path_2}" \
+  -F "image=@{local_file_path_3}" \
   -F "prompt={style_prompt}" \
   -F "model={model_name}" \
   -F "guidance={guidance}" \
@@ -45,17 +49,23 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/img2img" \
 ```
 
 **Model mapping:**
-| User flag | API model name | Steps | Guidance | Info |
-|-----------|----------------|-------|----------|------|
-| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4-10 (default: 4) | 7.5 | Faster, good quality |
-| `qwen` | `QwenImageEdit_Plus_NF4` | 10-50 (default: 20) | 7.5 | More control, higher fidelity |
+| User flag | API model name | Steps | Guidance | Max images | Info |
+|-----------|----------------|-------|----------|------------|------|
+| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4 (fixed) | ignored | 3 | Faster, multi-image support |
+| `qwen` | `QwenImageEdit_Plus_NF4` | 10-50 (default: 20) | 7.5 | 1 | More control, higher fidelity |
+
+**Klein model limits:**
+- Resolution: 256-1536px (step: 16)
+- Steps: 4 (fixed)
+- Guidance: not supported
+- Max input images: 3
 
 **Parameters:**
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `guidance` | `7.5` | Prompt adherence (1-20) |
-| `steps` | model-dependent | Inference steps |
-| `seed` | random | For reproducibility (0-999999) |
+| Parameter | Klein | Qwen | Description |
+|-----------|-------|------|-------------|
+| `guidance` | ignored | 7.5 | Prompt adherence (1-20) |
+| `steps` | 4 (fixed) | 20 | Inference steps |
+| `seed` | random | random | For reproducibility (0-999999) |
 
 ## Step 3: Poll status (feedback loop)
 
@@ -82,7 +92,7 @@ When `status = "done"`:
 
 Ask user:
 - "Would you like to try a different style?"
-- "Should I adjust the transformation strength?"
+- "Should I add more input images?" (Klein only, up to 3)
 - "Would you like to upscale the result?"
 
 ## Error handling
@@ -94,4 +104,5 @@ Ask user:
 | 500 Server Error | Wait 30s and retry once |
 | Invalid URL | Ask user to verify the image URL |
 | Missing prompt | Ask user to describe desired transformation |
+| Too many images | Klein max 3, Qwen max 1 |
 | NSFW rejected | Inform user, suggest alternative style |
