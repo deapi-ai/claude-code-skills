@@ -23,6 +23,7 @@ AI-powered media tools via decentralized GPU network.
 | `/transform-image` | Apply style transfer to images |
 | `/embed` | Generate text embeddings for semantic search |
 | `/deapi-setup` | Configure result delivery (webhooks/websockets) for server apps |
+| `/deapi-balance` | Check account balance and remaining credits |
 
 ## Quick Examples
 

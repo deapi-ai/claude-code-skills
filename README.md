@@ -116,6 +116,7 @@ Claude configures delivery with `/deapi-setup`.
 | `/transform-image` | Style transfer | `/transform-image https://... watercolor style` |
 | `/embed` | Generate text embeddings | `/embed "text to embed"` |
 | `/deapi-setup` | Configure webhooks/websockets | `/deapi-setup` |
+| `/deapi-balance` | Check account balance | `/deapi-balance` |
 
 ## Installation
 
@@ -248,7 +249,8 @@ claude-code-skills/
 │       ├── upscale.md
 │       ├── transform-image.md
 │       ├── embed.md
-│       └── deapi-setup.md
+│       ├── deapi-setup.md
+│       └── deapi-balance.md
 ├── docs/
 │   ├── api-reference.md
 │   └── troubleshooting.md
