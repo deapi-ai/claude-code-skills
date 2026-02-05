@@ -16,3 +16,7 @@ Thumbs.db
 *.swp
 *.swo
 CLAUDE.md
+
+# Internal docs (not for public repo)
+docs/client-api-docs.json
+docs/test-results.md
