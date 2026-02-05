@@ -42,7 +42,7 @@ You can also use commands directly if you prefer.
 
 **2. Set environment variable:**
 ```bash
-export DEAPI_API_KEY=your_key_here
+export DEAPI_API_KEY="your_key_here"
 ```
 
 **3. Install skill:**
@@ -148,7 +148,7 @@ Claude Code automatically discovers skills in `~/.claude/skills/`. No configurat
 2. Set environment variable:
    ```bash
    # Add to ~/.bashrc or ~/.zshrc
-   export DEAPI_API_KEY=your_key_here
+   export DEAPI_API_KEY="your_key_here"
    ```
 
 ### Full Skill Installation (Recommended)
