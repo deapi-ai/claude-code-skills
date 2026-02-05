@@ -267,8 +267,7 @@ claude-code-skills/
 │   ├── api-reference.md
 │   ├── pricing.md
 │   └── troubleshooting.md
-├── README.md
-└── CLAUDE.md
+└── README.md
 ```
 
 ## Requirements
