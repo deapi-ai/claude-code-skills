@@ -241,9 +241,10 @@ Free $5 credit on signup, no credit card required.
 ## Documentation
 
 - [API Reference](docs/api-reference.md)
-- [Models Reference](docs/models.md)
 - [Pricing Details](docs/pricing.md)
 - [Troubleshooting](docs/troubleshooting.md)
+
+**Available models:** Query `GET https://api.deapi.ai/api/v1/client/models` for up-to-date model list.
 
 ## Repository Structure
 
@@ -264,7 +265,6 @@ claude-code-skills/
 │       └── deapi-setup.md
 ├── docs/
 │   ├── api-reference.md
-│   ├── models.md
 │   ├── pricing.md
 │   └── troubleshooting.md
 ├── README.md

@@ -1,7 +1,7 @@
 ---
 name: transform-image
 description: Transform images with style transfer and AI modifications
-argument-hint: <image-url> <style-prompt>
+argument-hint: <image-url> <style-prompt> [--model klein|qwen]
 ---
 
 # Image Transformation via deAPI
@@ -13,6 +13,7 @@ Transform image: **$ARGUMENTS**
 Extract from `$ARGUMENTS`:
 - `image_url`: URL to the source image (required)
 - `style_prompt`: Description of desired transformation (required)
+- `--model`: `klein` (default, faster) or `qwen` (higher steps, more control)
 
 **Example style prompts:**
 - "convert to watercolor painting"
@@ -25,28 +26,35 @@ Extract from `$ARGUMENTS`:
 
 **Note:** This endpoint requires `multipart/form-data` with file upload.
 
+If user provides a URL, first download the image:
+```bash
+curl -s -o /tmp/transform_image.png "{image_url}"
+```
+
+Then send the transformation request:
+
 ```bash
 curl -s -X POST "https://api.deapi.ai/api/v1/client/img2img" \
   -H "Authorization: Bearer $DEAPI_API_KEY" \
   -F "image=@{local_file_path}" \
   -F "prompt={style_prompt}" \
-  -F "model=QwenImageEdit_Plus_NF4" \
-  -F "guidance=7.5" \
-  -F "steps=20" \
+  -F "model={model_name}" \
+  -F "guidance={guidance}" \
+  -F "steps={steps}" \
   -F "seed={random_seed}"
 ```
 
-If user provides a URL, first download the image:
-```bash
-curl -s -o /tmp/transform_image.png "{image_url}"
-```
-Then use `/tmp/transform_image.png` as the file path.
+**Model mapping:**
+| User flag | API model name | Steps | Guidance | Info |
+|-----------|----------------|-------|----------|------|
+| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4-10 (default: 4) | 7.5 | Faster, good quality |
+| `qwen` | `QwenImageEdit_Plus_NF4` | 10-50 (default: 20) | 7.5 | More control, higher fidelity |
 
 **Parameters:**
 | Parameter | Default | Description |
 |-----------|---------|-------------|
 | `guidance` | `7.5` | Prompt adherence (1-20) |
-| `steps` | `20` | Inference steps (10-50) |
+| `steps` | model-dependent | Inference steps |
 | `seed` | random | For reproducibility (0-999999) |
 
 ## Step 3: Poll status (feedback loop)

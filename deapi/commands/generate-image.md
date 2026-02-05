@@ -1,7 +1,7 @@
 ---
 name: generate-image
-description: Generate images from text prompts using Flux or ZImageTurbo models
-argument-hint: <prompt> [--model flux|turbo] [--size 512|768|1024]
+description: Generate images from text prompts using Flux Klein, Flux Schnell, or ZImageTurbo models
+argument-hint: <prompt> [--model klein|flux|turbo] [--size 512|768|1024]
 ---
 
 # Image Generation via deAPI
@@ -12,7 +12,7 @@ Generate image from prompt: **$ARGUMENTS**
 
 Extract from `$ARGUMENTS`:
 - `prompt`: The text description (required)
-- `--model`: `flux` (default, high quality) or `turbo` (faster)
+- `--model`: `klein` (default, recommended), `flux` (higher max resolution), or `turbo` (fastest)
 - `--size`: `512`, `768`, or `1024` (default: 1024)
 
 ## Step 2: Send request
@@ -33,10 +33,11 @@ curl -s -X POST "https://api.deapi.ai/api/v1/client/txt2img" \
 ```
 
 **Model mapping:**
-| User flag | API model name | Steps | Speed |
-|-----------|----------------|-------|-------|
-| `flux` (default) | `Flux1schnell` | 4-10 (default: 4) | ~15s |
-| `turbo` | `ZImageTurbo_INT8` | 4-10 (default: 4) | ~8s |
+| User flag | API model name | Steps | Info |
+|-----------|----------------|-------|------|
+| `klein` (default) | `Flux_2_Klein_4B_BF16` | 4-10 (default: 4) | Recommended, supports txt2img + img2img |
+| `flux` | `Flux1schnell` | 4-10 (default: 4) | Higher max resolution (2048) |
+| `turbo` | `ZImageTurbo_INT8` | 4-10 (default: 4) | Fastest |
 
 **Important:** Generate a random seed (0-999999) for each request.
 
