@@ -43,13 +43,20 @@ Content-Type: application/json
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `prompt` | string | Yes | - | Image description |
-| `model` | string | Yes | - | `Flux1schnell` or `ZImageTurbo_INT8` |
-| `width` | int | Yes | 1024 | Image width (512-1024) |
-| `height` | int | Yes | 1024 | Image height (512-1024) |
-| `steps` | int | Yes | 4 | Inference steps (4-10) |
-| `guidance` | float | Yes | 7.5 | Prompt adherence (1-20) |
+| `model` | string | Yes | - | `Flux_2_Klein_4B_BF16`, `Flux1schnell`, or `ZImageTurbo_INT8` |
+| `width` | int | Yes | 1024 | Image width (256-2048, depends on model) |
+| `height` | int | Yes | 1024 | Image height (256-2048, depends on model) |
+| `steps` | int | Yes | 4 | Inference steps (model-dependent) |
+| `guidance` | float | No | 7.5 | Prompt adherence (not supported by Klein) |
 | `seed` | int | Yes | - | Random seed (0-999999) |
-| `negative_prompt` | string | No | - | What to avoid |
+| `negative_prompt` | string | No | - | What to avoid (not supported by Klein) |
+
+**Models:**
+| Model | Slug | Steps | Max size | Guidance | Negative prompt |
+|-------|------|-------|----------|----------|-----------------|
+| FLUX.2 Klein 4B | `Flux_2_Klein_4B_BF16` | 4 (fixed) | 1536 (step: 16) | No | No |
+| Flux.1 Schnell | `Flux1schnell` | 1-10 (default: 4) | 2048 (step: 128) | No | Yes |
+| Z-Image-Turbo | `ZImageTurbo_INT8` | 1-50 (default: 8) | 2048 (step: 16) | No | Yes |
 
 ---
 
@@ -64,21 +71,28 @@ Content-Type: multipart/form-data
 
 -F "image=@photo.jpg"
 -F "prompt=convert to watercolor painting"
--F "model=QwenImageEdit_Plus_NF4"
--F "guidance=7.5"
--F "steps=20"
+-F "model=Flux_2_Klein_4B_BF16"
+-F "steps=4"
 -F "seed=123456"
 ```
 
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `image` | file | Yes | - | Source image file (max 10MB) |
+| `image` | file | Yes | - | Source image file(s) (max 10MB). Klein supports up to 3 images |
 | `prompt` | string | Yes | - | Transformation description |
-| `model` | string | Yes | - | `QwenImageEdit_Plus_NF4` |
-| `guidance` | float | Yes | 7.5 | Prompt adherence (1-20) |
-| `steps` | int | Yes | 20 | Inference steps |
+| `model` | string | Yes | - | `Flux_2_Klein_4B_BF16` or `QwenImageEdit_Plus_NF4` |
+| `guidance` | float | No | 7.5 | Prompt adherence (Klein: not supported, Qwen: 1-20) |
+| `steps` | int | Yes | - | Inference steps (Klein: 4 fixed, Qwen: 1-50 default 40) |
 | `seed` | int | Yes | - | Random seed (0-999999) |
+| `width` | int | No | - | Output width (Klein only, 256-1536, step: 16) |
+| `height` | int | No | - | Output height (Klein only, 256-1536, step: 16) |
+
+**Models:**
+| Model | Slug | Steps | Max images | Guidance | Custom output size |
+|-------|------|-------|------------|----------|--------------------|
+| FLUX.2 Klein 4B | `Flux_2_Klein_4B_BF16` | 4 (fixed) | 3 | No | Yes (256-1536) |
+| Qwen Image Edit Plus | `QwenImageEdit_Plus_NF4` | 1-50 (default: 40) | 1 | Yes | No |
 
 ---
 
